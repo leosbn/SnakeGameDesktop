@@ -1,0 +1,8 @@
+# FOLDERS I WANT TO IGNORE
+build/
+nbproject/
+
+# FILES I WANT TO IGNORE
+build.xml
+manifest.mf
+
