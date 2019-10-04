@@ -4,10 +4,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import snake.domain.*;
 import snake.Direction;
+import snake.game.SnakeGame;
 
 public class KeyboardListener implements KeyListener {
 
     private Snake snake;
+    private SnakeGame game;
 
     public KeyboardListener(Snake snake) {
         this.snake = snake;

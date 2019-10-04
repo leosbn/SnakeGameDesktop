@@ -7,7 +7,7 @@ import javax.swing.SwingUtilities;
 public class Main {
 
     public static void main(String[] args) {
-        SnakeGame game = new SnakeGame(20, 20);
+        SnakeGame game = new SnakeGame(30, 30);
 
         SnakeUI ui = new SnakeUI(game, 20);
         SwingUtilities.invokeLater(ui);
