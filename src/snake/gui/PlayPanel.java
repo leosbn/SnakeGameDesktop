@@ -1,7 +1,6 @@
 package snake.gui;
 
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Graphics;
 import snake.game.*;
@@ -31,5 +30,4 @@ public class PlayPanel extends JPanel implements Updatable {
     public void update() {
         this.repaint();
     }
-
 }

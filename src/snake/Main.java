@@ -20,6 +20,7 @@ public class Main {
             }
         }
         game.setUpdatable(ui.getUpdatable());
+        game.setUI(ui);
         game.start();
     }
 }

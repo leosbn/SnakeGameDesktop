@@ -17,13 +17,15 @@ public class SnakeGame extends Timer implements ActionListener {
     private Snake snake;
     private Apple apple;
     private int points;
-
+    private SnakeUI ui;
+    
     public SnakeGame(int width, int height) {
         super(1000, null);
         this.width = width;
         this.height = height;
         this.continues = true;
         this.snake = new Snake(this.width / 2, this.height / 2, Direction.DOWN);
+        this.points = 0;
         addActionListener(this);
         setInitialDelay(2000);
         int appleX = new Random().nextInt(this.width);
@@ -35,7 +37,6 @@ public class SnakeGame extends Timer implements ActionListener {
                 this.apple = new Apple(appleX / 2 + 1, appleY / 2 + 1);
             }
         }
-        this.points = 0;
     }
 
     public boolean continues() {
@@ -44,6 +45,10 @@ public class SnakeGame extends Timer implements ActionListener {
 
     public void setUpdatable(Updatable updatable) {
         this.updatable = updatable;
+    }
+    
+    public void setUI(SnakeUI ui){
+        this.ui = ui;
     }
 
     public int getHeight() {
@@ -58,6 +63,11 @@ public class SnakeGame extends Timer implements ActionListener {
         return this.points;
     }
 
+    public void setPoints() {
+        this.points++;
+        this.ui.updateLabel();
+    }
+
     public void actionPerformed(ActionEvent ae) {
         if (!continues) {
             return;
@@ -65,7 +75,7 @@ public class SnakeGame extends Timer implements ActionListener {
         this.snake.move();
         if (this.snake.runsInto(this.apple)) {
             this.snake.grows();
-            this.points += 1;
+            this.setPoints();
             this.apple = new Apple(new Random().nextInt(this.width), new Random().nextInt(this.height));
         }
         if (this.snake.runsIntoItself()) {
