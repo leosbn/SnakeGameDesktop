@@ -1,5 +1,11 @@
 package snake.domain;
 
+/**
+ * the most basic object of the game, meant to compose the apple and the pieces
+ * of the body of the moving snake
+ *
+ * @author leosbn
+ */
 public class Piece {
 
     private int x;
@@ -18,6 +24,13 @@ public class Piece {
         return this.y;
     }
 
+    /**
+     * if the coordinates of this piece take the same values of another piece,
+     * it means the two pieces have made contact and the method returns true
+     *
+     * @param piece
+     * @return
+     */
     public boolean runsInto(Piece piece) {
         if (this.x == piece.getX() && this.y == piece.getY()) {
             return true;

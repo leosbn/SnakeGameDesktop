@@ -26,7 +26,9 @@ public class SnakeUI implements Runnable {
         this.sideLength = sideLength;
         this.points = this.game.getPoints();
     }
-
+/**
+ * this method sets the main frame of the game
+ */
     public void run() {
         this.frame = new JFrame("Snake");
         int width = (this.game.getWidth() + 1) * sideLength + 10;
@@ -37,7 +39,12 @@ public class SnakeUI implements Runnable {
         this.frame.pack();
         this.frame.setVisible(true);
     }
-
+/**
+ * this method sets the components on the main frame:
+ * 1. the board game
+ * 2. the panel with the points information
+ * @param container 
+ */
     public void createComponents(Container container) {
         this.board = new PlayPanel(this.game, this.sideLength);
         this.board.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -45,7 +52,10 @@ public class SnakeUI implements Runnable {
         container.add(createPointsPanel(), BorderLayout.NORTH);
         this.frame.addKeyListener(new KeyboardListener(this.game.getSnake()));
     }
-
+/**
+ * this method contains the points board
+ * @return 
+ */
     public JPanel createPointsPanel() {
         JPanel panel = new JPanel(new GridLayout(1, 3));
         JLabel pointsName = new JLabel("YOUR POINTS");

@@ -15,7 +15,10 @@ public class PlayPanel extends JPanel implements Updatable {
         this.game = game;
         this.pieceLength = pieceLength;
     }
-
+/**
+ * defines the colors of the game
+ * @param graphics 
+ */
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 

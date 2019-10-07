@@ -38,15 +38,24 @@ public class SnakeGame extends Timer implements ActionListener {
             }
         }
     }
-
+/**
+ * controls whether the game goes on or stops
+ * @return 
+ */
     public boolean continues() {
         return continues;
     }
-
+/**
+ * this control is meant to provide a connection to the updatable JPanel that graphically traces the game
+ * @param updatable 
+ */
     public void setUpdatable(Updatable updatable) {
         this.updatable = updatable;
     }
-    
+    /**
+     * this control connects the game to the User Interface
+     * @param ui 
+     */
     public void setUI(SnakeUI ui){
         this.ui = ui;
     }
@@ -67,7 +76,10 @@ public class SnakeGame extends Timer implements ActionListener {
         this.points++;
         this.ui.updateLabel();
     }
-
+/**
+ * define what happens whenever a piece (apple or body of the snake) or the border of the game is hit
+ * @param ae 
+ */
     public void actionPerformed(ActionEvent ae) {
         if (!continues) {
             return;
