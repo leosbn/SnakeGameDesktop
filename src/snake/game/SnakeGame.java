@@ -18,6 +18,7 @@ public class SnakeGame extends Timer implements ActionListener {
     private Apple apple;
     private int points;
     private SnakeUI ui;
+    private Scores scoreTable;
     
     public SnakeGame(int width, int height) {
         super(1000, null);
@@ -26,6 +27,7 @@ public class SnakeGame extends Timer implements ActionListener {
         this.continues = true;
         this.snake = new Snake(this.width / 2, this.height / 2, Direction.DOWN);
         this.points = 0;
+        this.scoreTable = new Scores();
         addActionListener(this);
         setInitialDelay(2000);
         int appleX = new Random().nextInt(this.width);
@@ -91,10 +93,13 @@ public class SnakeGame extends Timer implements ActionListener {
             this.apple = new Apple(new Random().nextInt(this.width), new Random().nextInt(this.height));
         }
         if (this.snake.runsIntoItself()) {
+            this.scoreTable.addLastScore(this.points);
             this.continues = false;
         } else if (this.snake.getHead().getX() == this.width || this.snake.getHead().getX() < 0) {
+            this.scoreTable.addLastScore(this.points);
             this.continues = false;
         } else if (this.snake.getHead().getY() == this.height || this.snake.getHead().getY() < 0) {
+            this.scoreTable.addLastScore(this.points);
             this.continues = false;
         }
         this.updatable.update();
