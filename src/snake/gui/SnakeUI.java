@@ -11,6 +11,8 @@ import java.awt.Container;
 import javax.swing.BorderFactory;
 import javax.swing.WindowConstants;
 import snake.game.*;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 
 public class SnakeUI implements Runnable {
 
@@ -20,17 +22,20 @@ public class SnakeUI implements Runnable {
     private PlayPanel board;
     private JLabel label;
     private int points;
+    private Image logo;
 
     public SnakeUI(SnakeGame game, int sideLength) {
         this.game = game;
         this.sideLength = sideLength;
         this.points = this.game.getPoints();
+        this.logo = new ImageIcon("src\\files\\snake_logo.jpg").getImage();
     }
 /**
  * this method sets the main frame of the game
  */
     public void run() {
         this.frame = new JFrame("Snake");
+        this.frame.setIconImage(this.logo);
         int width = (this.game.getWidth() + 1) * sideLength + 10;
         int height = (this.game.getHeight() + 2) * sideLength + 10;
         this.frame.setPreferredSize(new Dimension(width, height));
